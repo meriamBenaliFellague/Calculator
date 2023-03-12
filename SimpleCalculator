@@ -1,0 +1,73 @@
+#include<stdio.h>
+float opiration(float x,float y,char s);
+int main()
+{float n1,n2,n3,n4,n5,n6;char c1,c2,c3,c4,c5;int n;
+	do{
+	printf("enter number of opiration: ");
+	scanf("%d",&n);
+	}while(n>3);
+	if(n==1)
+	{
+		printf("enter your opiration: ");
+		scanf("%f %c %f",&n1,&c1,&n2);
+		printf("%f",opiration(n1,n2,c1));
+	}else{
+		if(n==2)
+		{
+			printf("enter your opiration: ");
+			scanf("%f %c %f %c %f",&n1,&c1,&n2,&c2,&n3);
+			if(c2!='*'&&c2!='/')
+			{
+				printf("%f",opiration(opiration(n1,n2,c1),n3,c2));
+			}else{
+				if(c2=='*'||c2=='/'){
+					printf("%f",opiration(opiration(n2,n3,c2),n1,c1));
+				}
+			}
+		}
+		if(n==3)
+		{
+			printf("enter your opiration: ");
+			scanf("%f %c %f %c %f %c %f",&n1,&c1,&n2,&c2,&n3,&c3,&n4);
+			if(c3!='*'&&c3!='/'&&c2!='*'&&c2!='/')
+			{
+				printf("%f",opiration(opiration(opiration(n1,n2,c1),n3,c2),n4,c3));
+			}else{
+				if(c2=='*'||c2=='/'&&c3=='*'||c3=='/'){
+					printf("%f",opiration(opiration(opiration(n2,n3,c2),n4,c3),n1,c1));
+				}else{
+				if(c2=='*'||c2=='/')
+				{
+					printf("%f",opiration(opiration(opiration(n2,n3,c2),n1,c1),n4,c3));
+				}
+				if(c1=='*'||c1=='/'&&c3=='*'||c3=='/')
+				{
+					printf("%f",opiration(opiration(n1,n2,c1),opiration(n3,n4,c3),c2));
+				}
+				else{
+				if(c3=='*'||c3=='/')
+				{
+					printf("%f",opiration(opiration(opiration(n3,n4,c3),n1,c1),n2,c2));
+				}
+				}
+				}
+				
+			}
+		}
+
+	}
+}
+
+float opiration(float x,float y,char s)
+{
+	switch(s)
+	{
+		case '+':return=x+y;break;
+		case '-':return x-y;break;
+		case '*':return x*y;break;
+		case '/':return x/y;break;
+	}
+
+}
+
+				
